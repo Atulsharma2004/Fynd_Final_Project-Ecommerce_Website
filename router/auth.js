@@ -10,7 +10,8 @@ const contactModel = require('../model/contactSchema')
 const productModel = require('../model/productSchema')
 
 router.get('/',(req, res)=>{
-    res.send('Hello World');
+    // res.send('Hello World');
+    res.render(`/${process.env.FRONTEND_URL}/home`)
 })
 
 //Signup api
