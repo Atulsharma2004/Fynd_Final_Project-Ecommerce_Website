@@ -10,8 +10,7 @@ const contactModel = require('../model/contactSchema')
 const productModel = require('../model/productSchema')
 
 router.get('/',(req, res)=>{
-    // res.send('Hello World');
-    res.render(`/${process.env.FRONTEND_URL}/home`)
+    res.send('Welcome To Fresh and Real Fruits, Vegetables and Fast Foods... Go to /home');
 })
 
 //Signup api
