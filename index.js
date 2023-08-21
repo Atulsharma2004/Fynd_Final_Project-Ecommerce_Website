@@ -20,6 +20,12 @@ app.use(require('./router/auth'));
 const PORT = process.env.PORT || 8080
 const secreat_key = process.env.STRIPE_SECRET_KEY
 
+app.use(express.static(path.join(__dirname, './client/build')))
+
+app.get('*', (req, res)=>{
+    res.sendFile(path.join(__dirname, './client/build/index.html'))
+})
+
 
 const userModel = require('./model/userSchema');
 const contactModel = require('./model/contactSchema')
@@ -70,11 +76,7 @@ app.post('/checkout-payment', async (req, res) => {
 })
 
 
-app.use(express.static(path.join(__dirname, './client/build')))
 
-app.get('*', (req, res)=>{
-    res.sendFile(path.join(__dirname, './client/build/index.html'))
-})
 
 
 app.listen(PORT, () => {
